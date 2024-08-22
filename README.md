@@ -33,5 +33,5 @@ To run the project locally, follow these steps:
 
  **Clone the Repository**:
    ```bash
-   git clone https://github.com/your-username/nft-ticketing-platform.git
+   git clone https://github.com/virajkhot13/nft-ticketing-platform.git
    cd nft-ticketing-platform
