@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lalezar&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            object-fit: cover;
+        }
+        body{
+            background-color: rgba(29, 29, 29, 1);
+
+        }
+
+        .heading{
+            /* z-index: -1; */
+            color: #9EA54F;
+            text-align: center;
+            font-family: 'kanit';
+            font-weight: 700;
+            font-size: 92px;
+
+        }
+        .container {
+            width: 100%;
+            height: 100vh;
+            background-color: rgba(29, 29, 29, 1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+
+        .form {
+            z-index: 10;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            border-radius: 36px;
+            width: 90%;
+            height: 75%;
+            background-color: rgba(52, 52, 52, 0.15);
+            border: 2.2px solid;
+background: 
+    linear-gradient(109.74deg, #000000 16.78%, #464646 89.25%), 
+    linear-gradient(289.1deg, rgba(0, 0, 0, 0) 45.83%, rgba(174, 174, 174, 0.5) 95.62%);            flex-wrap: wrap;
+        }
+
+        .input input,button{
+            background-color: #3f3f3f;
+            border: none;
+            color: #1e1d1e;
+            border-radius: 12px;
+            padding: 2px;
+            margin: 10px 0px;
+            font-size: 37px;
+            font-weight: 400;
+            font-family: 'kanit';
+            width: 70%;
+        }
+        /* Placeholder color set to black */
+        input::placeholder {
+            color: black;
+            margin: 0px 10px;
+        }
+        .image_href_prop{
+            width: 64px;
+            height: 64px;
+            margin: 0px 20px;
+        }
+        .image_href{
+            display: flex;
+
+
+        }
+        .form_content{
+            width: 60%;
+        }
+        .sign_up button{
+            background-color: #9EA54F;
+            width: 70%;
+            text-align: center;
+        }
+        .introduction{
+            font-family: 'lalezar';
+            font-weight: 400;
+            font-size: 45px;
+        }
+        .color_change_1{
+            color: #c2c2c2;
+        }
+        .color_change_2{
+            color: #C99455;
+            text-transform: uppercase;
+        }
+        @media only screen and (max-width:1000px){
+            .heading{
+                display: none;
+            }
+            .form_content{
+
+                /* margin: 20px 0px; */
+                /* margin: auto; */
+                display: flex;
+                justify-content: center;
+                flex-direction: column;
+                width: 90%;
+            }
+            /* .introduction{
+                text-align: center;
+            } */
+            .input input{
+                width: 100%;
+            }
+            .sign_up button{
+                width: 100%;
+            }
+            .form{
+                height: 95%;
+            }
+            .image_href_prop{
+                width: 42px;
+                height: 42px;   
+            }
+            
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="heading">Sign Up</div>
+        <div class="form">
+            <div class="form_content">
+                <div class="introduction"><span class="color_change_1">Welcome to</span> <span  class="color_change_2">Lumina</span></div>
+                <div class="input enter_name">
+                    <input type="text" name="enter_name" id="enter_name" placeholder="enter name">
+                </div>
+                <div class="input email_id">
+                    <input type="email" name="email_id" id="email_id" placeholder="enter mail">
+                </div>
+                <div class="input enter_password">
+                    <input type="password" name="password" id="enter_password" placeholder="password">
+                </div>
+                <div class="input confirm_passowrd">
+                    <input type="password" name="confirm_passowrd" id="confirm_passowrd" placeholder="confirm password">
+                </div>
+                <div class="input sign_up">
+                    <a href="../Main Webpage/index.html">
+
+                        <button type="submit">Sign Up :)</button>
+                    </a>
+                </div>
+            </div>
+            <div class="image_href">
+                <div class="image_1 ">
+                    <img src="google.png" class="image_href_prop" alt="image_google">
+                </div>
+                <div class="image_2">
+                    <img src="gmail.png" class="image_href_prop" alt="image_gmail">
+                </div>
+                <div class="image_3">
+                    <img src="fox.png" class="image_href_prop" alt="image_fox">
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>

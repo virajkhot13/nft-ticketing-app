@@ -1,38 +1,319 @@
-.App {
+/* Global Styles */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  background-color: #1e1e1e;
+  color: #e0e0e0;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Common Form Styles */
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  color: #999;
+  margin-bottom: 5px;
+  font-size: 16px;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 12px;
+  background-color: #333;
+  border: none;
+  border-radius: 8px;
+  color: #fff;
+  font-size: 16px;
+}
+
+button {
+  background-color: #cddc39;
+  color: #000;
+  padding: 15px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  width: 100%;
+  font-size: 18px;
+  font-weight: bold;
+  margin-top: 20px;
+}
+
+button:hover {
+  background-color: #b0c800;
+}
+
+/* CreateEventPage Styles */
+.create-event-container {
+  background-color: #2b2b2b;
+  border-radius: 20px;
+  display: flex;
+  max-width: 900px;
+  width: 90%;
+  height: 600px;
+  margin: 50px auto;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.create-event-image-container {
+  width: 100%;
+  background-color: #7f00ff; /* Default purple background */
+  border-radius: 20px 1 0 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  position: relative;
+  cursor: pointer;
+}
+
+.create-event-image-container.has-image {
+  background-color: #000; /* Black background when image is uploaded */
+}
+
+.create-event-image-container img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  border-radius: 10px;
+}
+
+.create-event-form-container {
+  width: 50%;
+  padding: 30px;
+  overflow-y: auto; /* Add scrolling for overflow content */
+  max-height: 100%;
+}
+
+.create-event-form-container h2 {
+  color: #fff;
+  margin-bottom: 20px;
+  font-size: 28px;
+}
+
+/* File input styling */
+.file-input-label {
+  display: inline-block;
+  padding: 10px 15px;
+  background-color: #cddc39;
+  color: #000;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.file-input-label:hover {
+  background-color: #b0c800;
+}
+
+input[type="file"] {
+  display: none;
+}
+
+/* EventsPage Styles */
+.events-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.events-container h1 {
+  text-align: center;
+  color: #ffffff;
+  margin-bottom: 30px;
+}
+
+.events-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.event-card {
+  background-color: #252525;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.event-card:hover {
+  transform: translateY(-5px);
+}
+
+.event-image {
+  height: 200px;
+  overflow: hidden;
+}
+
+.event-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.event-details {
+  padding: 15px;
+}
+
+.event-details h2 {
+  margin: 0 0 10px;
+  color: #ffffff;
+  font-size: 1.2em;
+}
+
+.event-info {
+  margin-bottom: 5px;
+  font-size: 0.9em;
+}
+
+.event-info strong {
+  color: #b0b0b0;
+}
+
+.event-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 15px;
+  background-color: #1e1e1e;
+}
+
+.buy-ticket-button {
+  background-color: #7f00ff;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.buy-ticket-button:hover {
+  background-color: #6a00d3;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .create-event-container {
+    flex-direction: column;
+  }
+
+  .create-event-image-container,
+  .create-event-form-container {
+    width: 100%;
+  }
+
+  .create-event-image-container {
+    height: 300px;
+    margin-bottom: 20px;
+  }
+
+  .events-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Add these new styles */
+.upload-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.create-event-image-container:hover .upload-overlay {
+  opacity: 1;
+}
+
+.upload-button {
+  background-color: #cddc39;
+  color: #000;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1em;
+  font-weight: bold;
+  margin-top: 10px;
+  transition: background-color 0.3s ease;
+}
+
+.upload-button:hover {
+  background-color: #b0c800;
+}
+
+.upload-text {
+  color: #fff;
+  margin-bottom: 10px;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* Add these styles to remove the white scrollbar */
+
+/* For Webkit browsers (Chrome, Safari) */
+::-webkit-scrollbar {
+  width: 10px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+::-webkit-scrollbar-track {
+  background: #2b2b2b;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 5px;
 }
 
-.App-link {
-  color: #61dafb;
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* For Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #888 #2b2b2b;
+}
+
+/* Ensure the form container has a scrollbar when content overflows */
+.create-event-form-container {
+  overflow-y: auto;
+  max-height: 100%;
+}
+
+/* Optional: Hide scrollbar for Chrome, Safari and Opera */
+.create-event-form-container::-webkit-scrollbar {
+  display: none;
+}
+
+/* Optional: Hide scrollbar for IE, Edge and Firefox */
+.create-event-form-container {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
 }

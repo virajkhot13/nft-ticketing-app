@@ -1,10 +1,8 @@
-// eth.js
-
-import { ethers } from 'ethers';
+import { ethers } from 'ethers'; 
 import Web3Modal from 'web3modal';
-import TicketNFT from './TicketNFT.json'; // Your contract's ABI
+import TicketNFT from './TicketNFT.json'; 
 
-const TICKET_NFT_ADDRESS = '0x9CE96D0996af72c551896c6D6C0b8fb5AC46a2ec'; // Replace with your deployed contract address
+const TICKET_NFT_ADDRESS = '0x3D9704d10EAf303f1584C7c12Cf8d6a7DfEFDa2A'; 
 
 let provider;
 let signer;
@@ -14,9 +12,14 @@ export const connectWallet = async () => {
   try {
     const web3Modal = new Web3Modal();
     const instance = await web3Modal.connect();
-    provider = new ethers.BrowserProvider(instance);
+    provider = new ethers.BrowserProvider(instance); 
     signer = await provider.getSigner();
-    contract = new ethers.Contract(TICKET_NFT_ADDRESS, TicketNFT.abi, signer); // Initialize the contract here
+    try {
+      contract = new ethers.Contract(TICKET_NFT_ADDRESS, TicketNFT, signer);
+    } catch (error) {
+      console.error("Error initializing contract:", error);
+      // Display an appropriate error message to the user
+    }    
     const address = await signer.getAddress();
     console.log('Wallet connected:', address);
     return address;
@@ -25,6 +28,7 @@ export const connectWallet = async () => {
     throw error;
   }
 };
+
 
 // Removed getContract function, as it is redundant
 
@@ -42,7 +46,18 @@ export const createEvent = async (organization, teamName, eventName, description
     throw error;
   }
 };
-
+export const buyTicket = async (eventId, ticketURI) => {
+  if (!contract) throw new Error("Contract is not initialized");
+  try {
+    const tx = await contract.mintTicket(eventId, ticketURI); // Call mintTicket with eventId and ticketURI
+    await tx.wait(); // Wait for the transaction to be confirmed
+    
+    console.log('Ticket minted successfully:', tx);
+  } catch (error) {
+    console.error("Failed to mint ticket:", error);
+    throw error;
+  }
+};
 export const validateTicket = async (tokenId) => {
   if (!contract) throw new Error("Contract is not initialized");
   try {

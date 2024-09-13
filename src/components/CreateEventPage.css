@@ -1,0 +1,132 @@
+@import url('https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+.create-event-container {
+    background-color: #111111;
+    width: 789px;
+    height: 443px;
+    border-radius: 30px;
+    margin: 20px auto;
+    display: flex;
+    font-family: 'Kanit', sans-serif;
+}
+
+.create-event-image-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 24px;
+}
+
+.create-event-image-container {
+    width: 342px;
+    height: 342px; /* Make it square */
+    border-radius: 26px;
+    background-color: #4F3478;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    overflow: hidden;
+    position: relative;
+    margin-bottom: 15px; /* Add space between image and button */
+}
+
+.create-event-image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 26px;
+}
+
+.upload-nft-box {
+    width: 342px;
+    padding: 10px 0;
+    background-color: #cddc39; /* Yellow color */
+    border-radius: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #000000; /* Black text for contrast */
+    font-weight: 600;
+    font-size: 18px;
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+}
+
+.upload-nft-box:hover {
+    background-color: #b0c800; /* Darker yellow on hover */
+}
+
+.create-event-form-container {
+    flex: 1;
+    padding: 24px;
+    color: #AB8ADF;
+}
+
+.create-event-form-container h2 {
+    font-weight: 600;
+    font-size: 40.25px;
+    margin-bottom: 20px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    color: #717171;
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 10px;
+    background-color: #1E1E1E;
+    border: none;
+    border-radius: 8px;
+    color: #AB8ADF;
+    font-family: 'Kanit', sans-serif;
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+button[type="submit"] {
+    background-color: #4F3478;
+    color: #808080;
+    font-size: 25px;
+    font-weight: 700;
+    padding: 10px 35px;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: 0.2s ease-in-out;
+    margin-top: 20px;
+}
+
+button[type="submit"]:hover {
+    color: white;
+}
+
+/* Responsive design */
+@media (max-width: 800px) {
+    .create-event-container {
+        width: 90%;
+        height: auto;
+        flex-direction: column;
+    }
+
+    .create-event-image-container {
+        width: calc(100% - 48px);
+        height: 200px;
+    }
+
+    .create-event-form-container {
+        padding: 24px;
+    }
+}

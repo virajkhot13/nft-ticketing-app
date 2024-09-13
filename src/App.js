@@ -8,7 +8,7 @@ import Social from './components/Social';
 import Profile from './components/profile';
 import WhoAreYou from './components/WhoAreYou';
 import { RoleProvider } from './RoleContext';
-
+import './App.css';
 function App() {
   const [userAddress, setUserAddress] = useState('');
 

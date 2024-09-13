@@ -2,6 +2,7 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useRole } from '../RoleContext';
 
+
 function WhoAreYou() {
   const navigate = useNavigate();
   const { setRole } = useRole(); 
@@ -19,7 +20,7 @@ function WhoAreYou() {
         <div className="creator_container" onClick={() => handleSelection('creator')}>
           <div className="creator">
             <div className="image_container">
-              <img src={`${process.env.PUBLIC_URL}/assets/creator.jpg`} alt="Creator Image" />
+              <img src={`${process.env.PUBLIC_URL}/assets/creator.png`} alt="Creator " />
             </div>
           </div>
           <div className="select_user_text">Creator</div>
@@ -29,7 +30,7 @@ function WhoAreYou() {
         <div className="user_container" onClick={() => handleSelection('user')}>
           <div className="user">
             <div className="image_container">
-              <img src={`${process.env.PUBLIC_URL}/assets/user.jpg`} alt="User Image" />
+              <img src={`${process.env.PUBLIC_URL}/assets/user.png`} alt="User " />
             </div>
           </div>
           <div className="select_user_text">User</div>
